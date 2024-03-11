@@ -397,5 +397,101 @@
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
         "category": "soup",
         "price": 10.5
-    }
+    },
+    {
+        "name": "Chicken Biryani",
+        "recipe": "Cooked with fragrant basmati rice, tender chicken pieces, and a blend of traditional spices.",
+        "image": "https://i.ibb.co/N7mnnmY/1-7.jpg",
+        "category": "Biryani",
+        "price": "$12.99",
+        "serve_time": "dinner"
+      },
+      {
+        "name": "Vegetable Biryani",
+        "recipe": "A delightful blend of fresh vegetables, aromatic spices, and long-grain basmati rice.",
+        "image": "https://i.ibb.co/qj19J1n/veg-biryani-recipes.jpg",
+        "category": "Biryani",
+        "price": "$10.99",
+        "serve_time": "lunch"
+      },
+      {
+        "name": "Lamb Biryani",
+        "recipe": "Tender pieces of lamb marinated with spices, cooked with basmati rice and garnished with cilantro.",
+        "image": "https://i.ibb.co/jHJCbDS/Easy-Homemade-Mutton-Biryani-4.jpg",
+        "category": "Biryani",
+        "price": "$14.99",
+        "serve_time": "dinner"
+      },
+      {
+        "name": "Chicken Curry",
+        "recipe": "Tender chicken cooked in a rich and flavorful curry sauce made from a blend of spices and herbs.",
+        "image": "https://i.ibb.co/ZHh9LBt/Air-Fryer-Chicken-Curry-square-FS-36.jpg",
+        "category": "Curry",
+        "price": "$11.99",
+        "serve_time": "lunch"
+      },
+      {
+        "name": "Paneer Curry",
+        "recipe": "Soft cubes of paneer cheese simmered in a creamy tomato-based curry sauce.",
+        "image": "https://i.ibb.co/gDT7Tgw/butter-paneer-curry-98394-16x9.jpg",
+        "category": "Curry",
+        "price": "$10.99",
+        "serve_time": "dinner"
+      },
+      {
+        "name": "Beef Curry",
+        "recipe": "Succulent beef pieces slow-cooked in a spicy and aromatic curry sauce, served with rice.",
+        "image": "https://i.ibb.co/w7Hdxnb/beef-curry.jpg",
+        "category": "Curry",
+        "price": "$13.99",
+        "serve_time": "lunch"
+      },
+      {
+        "name": "Seafood Paella",
+        "recipe": "A classic Spanish dish made with saffron-infused rice, mixed seafood, and vegetables.",
+        "image": "https://i.ibb.co/RP3SL5w/seafood-paella-97653-1.jpg",
+        "category": "Specials",
+        "price": "$16.99",
+        "serve_time": "dinner"
+      },
+      {
+        "name": "Grilled Salmon",
+        "recipe": "Fresh salmon fillet grilled to perfection and served with a side of roasted vegetables.",
+        "image": "https://i.ibb.co/wp9BbqG/featured-grilled-salmon-recipe.jpg",
+        "category": "Specials",
+        "price": "$18.99",
+        "serve_time": "dinner"
+      },
+      {
+        "name": "Lobster Risotto",
+        "recipe": "Creamy risotto cooked with lobster meat, white wine, and parmesan cheese.",
+        "image": "https://i.ibb.co/H4HQ7ZL/lobster-risotto-trattoria-marcella.jpg",
+        "category": "Specials",
+        "price": "$24.99",
+        "serve_time": "lunch"
+      },
+      {
+        "name": "Beef Wellington",
+        "recipe": "Tender beef fillet wrapped in puff pastry with mushroom duxelles, served with red wine sauce.",
+        "image": "https://i.ibb.co/cgc6hD5/puff-pastry-beef-wellington-valentines-day-2x1-zz-230201.jpg",
+        "category": "Specials",
+        "price": "$29.99",
+        "serve_time": "dinner"
+      },
+      {
+        "name": "Truffle Pasta",
+        "recipe": "Fresh pasta tossed in a creamy truffle sauce, garnished with parmesan cheese and fresh herbs.",
+        "image": "https://i.ibb.co/cLNGj1j/l-intro-1693236827.jpg",
+        "category": "Specials",
+        "price": "$22.99",
+        "serve_time": "lunch"
+      },
+      {
+        "name": "Stuffed Chicken Breast",
+        "recipe": "Chicken breast stuffed with spinach, sun-dried tomatoes, and feta cheese, served with garlic mashed potatoes.",
+        "image": "https://i.ibb.co/BC5g6Sk/9235511-spinach-stuffed-chicken-breasts-Dancing-Spirit-1x1-1-f8756d7c0d864a1b9b4f2d096294e511.jpg",
+        "category": "Specials",
+        "price": "$19.99",
+        "serve_time": "dinner"
+      }
 ]
