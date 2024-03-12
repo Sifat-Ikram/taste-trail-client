@@ -1,0 +1,26 @@
+[
+    {
+        "category": "dessert",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg"
+    },
+    {
+        "category": "pizza",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2017/01/bbq-370x247.jpg"
+    },
+    {
+        "category": "soup",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-8-370x247.jpg"
+    },
+    {
+        "category": "Biryani",
+        "image": "https://i.ibb.co/N7mnnmY/1-7.jpg"
+    },
+    {
+        "category": "Curry",
+        "image": "https://i.ibb.co/ZHh9LBt/Air-Fryer-Chicken-Curry-square-FS-36.jpg"
+    },
+    {
+        "category": "Specials",
+        "image": "https://i.ibb.co/RP3SL5w/seafood-paella-97653-1.jpg"
+    }
+]

@@ -9,6 +9,7 @@ import Home from "./component/pages/home/Home.jsx";
 import AuthProvider from "./component/provider/AuthProvider.jsx";
 import SignUp from "./component/pages/sign/SignUp.jsx";
 import SignIn from "./component/pages/sign/SignIn.jsx";
+import DetailsCategory from "./component/pages/details/DetailsCategory.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "/signIn",
         element: <SignIn />
       },
+      {
+        path: "/details/:id",
+        element: <DetailsCategory />
+      }
     ],
   },
 ]);

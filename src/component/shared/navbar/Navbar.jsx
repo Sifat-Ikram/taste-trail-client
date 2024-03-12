@@ -1,8 +1,12 @@
 import { useContext, useState } from "react";
 import { FcMindMap } from "react-icons/fc";
+import { HiMenu } from "react-icons/hi";
 import { AuthContext } from "../../provider/AuthProvider";
+import useCategory from "../../hooks/useCategory";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [category] = useCategory();
   const { logOut, user } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -31,9 +35,30 @@ const Navbar = () => {
         </a>
       </li>
       <li>
-        <a className="nav-link font-semibold" href={"/menu"}>
-          Menu
-        </a>
+        <div className="dropdown dropdown-hover">
+          <div tabIndex={0} role="button">
+            <a className="nav-link font-semibold" href={"/"}>
+              Menu
+            </a>
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] shadow bg-white lg:-ml-[925px] ml-40 md:-ml-[435px] gap-5 md:w-[730px] lg:w-[1200px] rounded-box p-5 md:flex md:flex-row md:justify-evenly"
+          >
+            {category.map((category) => (
+              <li key={category._id} className="bg-white shadow rounded-box">
+                <Link to={`/details/${category._id}`}>
+                  <div className="flex items-center flex-col p-5">
+                    <img src={category.image} alt="" className="lg:h-52 md:h-24" />
+                    <h1 className="text-center mt-2 text-xl font-semibold">
+                      {category.category}
+                    </h1>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </li>
       <li>
         <a className="nav-link font-semibold" href={"/signIn"}>
@@ -53,10 +78,13 @@ const Navbar = () => {
       <div className="navbar-start md:hidden">
         <div className="dropdown" onClick={toggleDropdown}>
           <div tabIndex={0} role="button" className="btn btn-ghost">
-            <FcMindMap className="h-6 w-6" />
+            <HiMenu className="h-6 w-6" />
           </div>
           {dropdownOpen && (
-            <ul className="menu menu-sm dropdown-content mt-3 z-[20] p-2 shadow bg-white dark:bg-gray-800 rounded-box w-52 absolute" onClick={closeDropdown}>
+            <ul
+              className="menu menu-sm dropdown-content mt-3 z-[20] p-2 shadow bg-white dark:bg-gray-800 rounded-box w-52 absolute"
+              onClick={closeDropdown}
+            >
               {navLinks}
             </ul>
           )}
@@ -72,12 +100,22 @@ const Navbar = () => {
         <div className="navbar-center hidden md:flex">
           <ul className="flex gap-4">{navLinks}</ul>
         </div>
-        <div className="dropdown dropdown-end relative" onClick={toggleDropdown}>
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+        <div
+          className="dropdown dropdown-end relative"
+          onClick={toggleDropdown}
+        >
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
             {user ? (
               <img
                 alt="Profile"
-                src={user.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+                src={
+                  user.photoURL ||
+                  "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                }
                 className="w-12 h-12 rounded-full object-cover"
               />
             ) : (
@@ -87,18 +125,35 @@ const Navbar = () => {
             )}
           </div>
           {dropdownOpen && (
-            <ul className="menu menu-sm dropdown-content w-32 mt-3 z-[20] py-3 px-5 shadow bg-white dark:bg-gray-800 rounded-box absolute" onClick={closeDropdown}>
+            <ul
+              className="menu menu-sm dropdown-content w-32 mt-3 z-[20] py-3 px-5 shadow bg-white dark:bg-gray-800 rounded-box absolute"
+              onClick={closeDropdown}
+            >
               <li className="w-full">
-                <a className="hover:text-[#02137A]" href="/profile">Profile</a>
+                <a className="hover:text-[#02137A]" href="/profile">
+                  Profile
+                </a>
               </li>
               <li className="w-full">
-                <a className="hover:text-[#02137A]" href="#">Settings</a>
+                <a className="hover:text-[#02137A]" href="#">
+                  Settings
+                </a>
               </li>
               <li className="w-full">
                 {user ? (
-                  <button className="hover:text-[#02137A]" onClick={(e) => { e.stopPropagation(); handleLogOut(); }}>Log Out</button>
+                  <button
+                    className="hover:text-[#02137A]"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleLogOut();
+                    }}
+                  >
+                    Log Out
+                  </button>
                 ) : (
-                  <button className="hover:text-[#02137A]" href="/signIn">Log In</button>
+                  <button className="hover:text-[#02137A]" href="/signIn">
+                    Log In
+                  </button>
                 )}
               </li>
             </ul>
