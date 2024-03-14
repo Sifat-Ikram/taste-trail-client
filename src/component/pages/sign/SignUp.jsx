@@ -5,8 +5,14 @@ import { updateProfile } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { createUser, googleRegister } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
@@ -18,6 +24,16 @@ const SignUp = () => {
     googleRegister()
       .then((res) => {
         console.log(res);
+        const userInfo = {
+          email: res.user?.email,
+          name: res.user?.displayName,
+          photoUrl: res.user?.photoUrl
+      }
+      axiosPublic.post('/user', userInfo)
+      .then(res =>{
+          console.log(res.data);
+          navigate(location?.state ? location.state : '/')
+      })
       })
       .catch((err) => console.error(err.message));
   };
@@ -43,7 +59,6 @@ const SignUp = () => {
 
       createUser(data.email, data.password)
         .then((res) => {
-          
           updateProfile(res.user, {
             displayName: data.name,
             photoUrl: resImage.data.data.display_url,
@@ -55,21 +70,19 @@ const SignUp = () => {
               console.error(err.message);
             });
 
-          // const userInfo = {
-          //     name: data.name,
-          //     email: data.email,
-          //     photoUrl: resImage.data.data.display_url
-          // }
-          // axios.post('user', userInfo)
-          //     .then(res => {
-          //         if (res.data.insertedId) {
-          //             Swal.fire("You signed up successfully!");
-          //             navigate(location?.state ? location.state : '/');
-          //         }
-          //         else {
-          //             Swal.fire("Your signed up failed!");
-          //         }
-          //     })
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            photoUrl: resImage.data.data.display_url,
+          };
+          axiosPublic.post("/user", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire("You signed up successfully!");
+              navigate(location?.state ? location.state : "/");
+            } else {
+              Swal.fire("Your signed up failed!");
+            }
+          });
         })
         .catch((err) => {
           console.error(err);

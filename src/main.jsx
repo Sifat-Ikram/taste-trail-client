@@ -10,6 +10,8 @@ import AuthProvider from "./component/provider/AuthProvider.jsx";
 import SignUp from "./component/pages/sign/SignUp.jsx";
 import SignIn from "./component/pages/sign/SignIn.jsx";
 import DetailsCategory from "./component/pages/details/DetailsCategory.jsx";
+import MenuPage from "./component/pages/menu/MenuPage.jsx";
+import Shop from "./component/pages/shop/Shop.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <DetailsCategory />
+      },
+      {
+        path: "/menu",
+        element: <MenuPage />
+      },
+      {
+        path: "/shop",
+        element: <Shop />
       }
     ],
   },

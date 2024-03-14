@@ -2,11 +2,8 @@ import { useContext, useState } from "react";
 import { FcMindMap } from "react-icons/fc";
 import { HiMenu } from "react-icons/hi";
 import { AuthContext } from "../../provider/AuthProvider";
-import useCategory from "../../hooks/useCategory";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [category] = useCategory();
   const { logOut, user } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -35,34 +32,13 @@ const Navbar = () => {
         </a>
       </li>
       <li>
-        <div className="dropdown dropdown-hover">
-          <div tabIndex={0} role="button">
-            <a className="nav-link font-semibold" href={"/"}>
-              Menu
-            </a>
-          </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] shadow bg-white lg:-ml-[925px] ml-40 md:-ml-[435px] gap-5 md:w-[730px] lg:w-[1200px] rounded-box p-5 md:flex md:flex-row md:justify-evenly"
-          >
-            {category.map((category) => (
-              <li key={category._id} className="bg-white shadow rounded-box">
-                <Link to={`/details/${category._id}`}>
-                  <div className="flex items-center flex-col p-5">
-                    <img src={category.image} alt="" className="lg:h-52 md:h-24" />
-                    <h1 className="text-center mt-2 text-xl font-semibold">
-                      {category.category}
-                    </h1>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <a className="nav-link font-semibold" href={"/menu"}>
+          Menu
+        </a>
       </li>
       <li>
-        <a className="nav-link font-semibold" href={"/signIn"}>
-          Sign in
+        <a className="nav-link font-semibold" href={"/shop"}>
+          Shop
         </a>
       </li>
       <li>
