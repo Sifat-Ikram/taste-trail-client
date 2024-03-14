@@ -24,20 +24,20 @@ const UpdateFood = () => {
 
   const onSubmit = async (data) => {
     const imageFile = { image: data.image[0] };
-    const res = await axios.post(image_hosting_api, imageFile, {
+    const resImage = await axios.post(image_hosting_api, imageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
 
-    if (res.data.data.display_url) {
+    if (resImage.data.data.display_url) {
       const foodInfo = {
         name: data.name,
         price: parseFloat(data.price),
         category: data.category,
         serve_time: data.serve_time,
         recipe: data.recipe,
-        image: res.data.data.display_url,
+        image: resImage.data.data.display_url,
       };
 
       const foodRes = await axiosPublic.patch(
