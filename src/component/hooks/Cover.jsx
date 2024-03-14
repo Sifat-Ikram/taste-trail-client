@@ -21,7 +21,7 @@ const Cover = ({ img, title }) => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div
           className="absolute inset-0 flex items-center justify-center text-center">
-          <h1 className="text-6xl font-bold uppercase text-white">{title} Menu</h1>
+          <h1 className="text-6xl font-bold uppercase text-white">{title}</h1>
         </div>
       </div>
     );

@@ -4,7 +4,7 @@ import useAxiosPublic from "./useAxiosPublic";
 const useMenu = () => {
    const axiosPublic = useAxiosPublic();
 
-    const { data: menu = [] } = useQuery({
+    const { data: menu = [], refetch } = useQuery({
         queryKey: ['menu'],
         queryFn: async () => {
             const res = await axiosPublic.get("/menu");
@@ -12,7 +12,7 @@ const useMenu = () => {
         }
 
     })
-    return [menu];
+    return [menu, refetch];
 };
 
 export default useMenu;

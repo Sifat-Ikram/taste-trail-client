@@ -111,6 +111,11 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="w-full">
+                <a className="hover:text-[#02137A]" href="/dashboard">
+                  Dashboard
+                </a>
+              </li>
+              <li className="w-full">
                 <a className="hover:text-[#02137A]" href="#">
                   Settings
                 </a>

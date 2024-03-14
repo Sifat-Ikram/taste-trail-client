@@ -3,12 +3,14 @@ import img from "../../../assets/others/authentication.gif";
 import { useForm } from "react-hook-form";
 import { updateProfile } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
-import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
+const image_hosting_key = import.meta.env.VITE_image_hosting_key;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
@@ -17,9 +19,6 @@ const SignUp = () => {
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
 
-  const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-  const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-
   const handleGoogleRegister = () => {
     googleRegister()
       .then((res) => {
@@ -27,13 +26,19 @@ const SignUp = () => {
         const userInfo = {
           email: res.user?.email,
           name: res.user?.displayName,
-          photoUrl: res.user?.photoUrl
-      }
-      axiosPublic.post('/user', userInfo)
-      .then(res =>{
+          photoUrl: res.user?.photoUrl,
+        };
+        axiosPublic.post("/user", userInfo).then((res) => {
           console.log(res.data);
-          navigate(location?.state ? location.state : '/')
-      })
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You signed up successfully",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          navigate(location?.state ? location.state : "/");
+        });
       })
       .catch((err) => console.error(err.message));
   };
@@ -75,14 +80,17 @@ const SignUp = () => {
             email: data.email,
             photoUrl: resImage.data.data.display_url,
           };
-          axiosPublic.post("/user", userInfo).then((res) => {
-            if (res.data.insertedId) {
-              Swal.fire("You signed up successfully!");
-              navigate(location?.state ? location.state : "/");
-            } else {
-              Swal.fire("Your signed up failed!");
-            }
-          });
+          axiosPublic
+            .post("/user", userInfo)
+            .then((res) => {
+              if (res.data.insertedId) {
+                console.log(res.data);
+                Swal.fire("You signed up successfully!");
+                navigate(location?.state ? location.state : "/");
+              } else {
+                Swal.fire("Your signed up failed!");
+              }
+            });
         })
         .catch((err) => {
           console.error(err);
