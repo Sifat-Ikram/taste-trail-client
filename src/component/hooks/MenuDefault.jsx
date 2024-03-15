@@ -28,9 +28,9 @@ const MenuDefault = ({ title }) => {
         menuId: item._id,
         email: user.email,
         name: item.name,
+        category: item.category,
         image: item.image,
-        price: parseFloat(item.price),
-        quantity: 1
+        price: parseFloat(item.price)
       };
 
       axiosPublic.post("/cart", cartItem).then((res) => {

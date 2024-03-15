@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 import img from '../../../assets/others/authentication2.png';
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -57,9 +56,6 @@ const SignIn = () => {
                             </div>
                             <div>
                                 <button type='submit' className='btn bg-[#02137A] hover:bg-[#02137A] w-full text-white'>Sign in</button>
-                            </div>
-                            <div>
-                                <button className='btn btn-outline border-[#02137A] hover:bg-[#02137A] w-full'><FaGoogle></FaGoogle> Sign up with Google</button>
                             </div>
                             {
                                 error && <p>{error}</p>

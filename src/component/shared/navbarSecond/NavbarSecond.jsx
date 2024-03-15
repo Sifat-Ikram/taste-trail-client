@@ -18,7 +18,7 @@ const NavbarSecond = () => {
   const adminNavLinks = (
     <>
       <li>
-        <a className="nav-link font-semibold" href={"/"}>
+        <a className="nav-link font-semibold" href={"/dashboard/adminHome"}>
           Admin Home
         </a>
       </li>
@@ -52,7 +52,7 @@ const NavbarSecond = () => {
   const userNavLinks = (
     <>
       <li>
-        <a className="nav-link font-semibold" href={"/dashboard/home"}>
+        <a className="nav-link font-semibold" href={"/dashboard/userHome"}>
           User Home
         </a>
       </li>
@@ -62,7 +62,7 @@ const NavbarSecond = () => {
         </a>
       </li>
       <li>
-        <a className="nav-link font-semibold" href="/dashboard/reservations">
+        <a className="nav-link font-semibold" href="/dashboard/myReservations">
           Reservations
         </a>
       </li>

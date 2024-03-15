@@ -1,11 +1,11 @@
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
-import useCart from "../../../hooks/useCart";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useCart from "../../../hooks/useCart";
 import Cover from "../../../hooks/Cover";
-import img from "../../../../assets/dashboard/image-5.jpg"
+import img from "../../../../assets/dashboard/image-5.jpg";
 
-const ManageBookings = () => {
+const ManageCart = () => {
     const axiosPublic = useAxiosPublic();
    const [ cart, refetch ] = useCart();
 
@@ -46,9 +46,9 @@ const ManageBookings = () => {
 
   return (
     <div className='w-11/12 mx-auto pb-10'>
-            <Cover img={img} title={"Manage Bookings"} />
+            <Cover img={img} title={"Cart Item"} />
             <div className='text-center mt-20'>
-                <h1 className='uppercase text-3xl font-bold mt-10'>All Bookings</h1>
+                <h1 className='uppercase text-3xl font-bold mt-10'>Your ordered Food Item</h1>
             </div>
             <div className='p-2 mt-10'>
                 <div className="overflow-x-auto mt-3">
@@ -76,7 +76,7 @@ const ManageBookings = () => {
                                     </td>
                                     <td>
                                         <div>
-                                            <div>{item.email}</div>
+                                            <div>{item.category}</div>
                                         </div>
                                     </td>
                                     <td>
@@ -98,4 +98,4 @@ const ManageBookings = () => {
   );
 };
 
-export default ManageBookings;
+export default ManageCart;

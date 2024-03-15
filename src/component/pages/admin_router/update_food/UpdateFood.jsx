@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useMenu from "../../../hooks/useMenu";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Cover from "../../../hooks/Cover";
+import img from "../../../../assets/menu/banner3.jpg";
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -12,6 +14,8 @@ const UpdateFood = () => {
   const { register, handleSubmit, reset } = useForm();
   const { id } = useParams();
   const [menu] = useMenu();
+  const navigate = useNavigate();
+    const location = useLocation();
 
   const selectedMenu = menu.find((test) => test._id === id);
 
@@ -19,8 +23,7 @@ const UpdateFood = () => {
     return <span className="loading loading-dots loading-lg"></span>;
   }
 
-  const { name, recipe, category, price, serve_time, _id } =
-    selectedMenu;
+  const { name, recipe, category, price, serve_time, _id } = selectedMenu;
 
   const onSubmit = async (data) => {
     const imageFile = { image: data.image[0] };
@@ -40,25 +43,24 @@ const UpdateFood = () => {
         image: resImage.data.data.display_url,
       };
 
-      const foodRes = await axiosPublic.patch(
-        `/menu/${_id}`,
-        foodInfo
-      );
+      const foodRes = await axiosPublic.patch(`/menu/${_id}`, foodInfo);
 
       if (foodRes.data.modifiedCount) {
         Swal.fire("food updated successfully");
         reset();
+        navigate(location?.state ? location.state : '/dashboard/manageFood');
       }
     }
   };
 
   return (
-    <div className="my-10">
+    <div className="mb-10">
       <div className="w-full mx-auto">
-        <div className="flex-1 text-center py-10 bg-blue-900 w-full">
-          <h1 className="text-5xl font-bold text-white">Add a Food item</h1>
+        <Cover img={img} title={"Update Page"} />
+        <div className="text-center mt-20">
+          <h1 className="uppercase text-3xl font-bold mt-10">Update Here</h1>
         </div>
-        <div className="w-4/5 mx-auto">
+        <div className="w-4/5 mx-auto mt-10">
           <form onSubmit={handleSubmit(onSubmit)} className="my-8 space-y-7">
             <div className="flex justify-between gap-8">
               <div className="flex-1">

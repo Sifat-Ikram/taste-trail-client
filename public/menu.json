@@ -25,7 +25,8 @@
         "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
         "category": "Dessert",
-        "price": 12.5
+        "price": 12.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Roast Duck Breast",
@@ -39,7 +40,8 @@
         "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
         "category": "Dessert",
-        "price": 12.5
+        "price": 12.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Escalope de Veau",
@@ -88,7 +90,8 @@
         "recipe": "Sautéed breaded veal escalope with watercress, lemon and veal jus.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-8-370x247.jpg",
         "category": "Pizza",
-        "price": 9.5
+        "price": 9.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Tuna Niçoise",
@@ -102,7 +105,8 @@
         "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
         "category": "Dessert",
-        "price": 14.5
+        "price": 14.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Chicken and Walnut Salad",
@@ -130,7 +134,8 @@
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
         "category": "offered",
-        "price": 13.5
+        "price": 13.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Roasted Pork Belly",
@@ -144,7 +149,8 @@
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
         "category": "Salad",
-        "price": 13.5
+        "price": 13.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Haddock",
@@ -235,7 +241,8 @@
         "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-5-370x247.jpg",
         "category": "popular",
-        "price": 14.5
+        "price": 14.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Chicken and Walnut Salad",
@@ -249,7 +256,8 @@
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
         "category": "Dessert",
-        "price": 13.5
+        "price": 13.5,
+        "serve_time": "Breakfast"
     },
     {
         "name": "Haddock",

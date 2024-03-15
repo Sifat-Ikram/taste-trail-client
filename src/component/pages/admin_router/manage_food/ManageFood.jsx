@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { MdDelete, MdEditNote } from "react-icons/md";
 import Swal from "sweetalert2";
+import Cover from "../../../hooks/Cover";
+import img from "../../../../assets/shop/banner2.jpg"
 
 const ManageFood = () => {
   const axiosPublic = useAxiosPublic();
@@ -51,8 +53,9 @@ const ManageFood = () => {
 
   return (
     <div className="space-y-8 my-20">
+      <Cover img={img} title={"Manage Food Items"} />
       <div className="border-b-2 border-gray-300 py-3 w-60 mx-auto text-center">
-        <h1 className="uppercase text-2xl">All Items</h1>
+        <h1 className="uppercase text-2xl">All food Items</h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 w-full mx-auto">
         {menu.map((item) => (

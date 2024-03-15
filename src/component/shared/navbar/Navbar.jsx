@@ -37,9 +37,12 @@ const Navbar = () => {
         </a>
       </li>
       <li>
-        <a className="nav-link font-semibold" href={"/shop"}>
+        {
+          user &&
+          <a className="nav-link font-semibold" href={"/shop"}>
           Shop
         </a>
+        }
       </li>
       <li>
         <a className="nav-link font-semibold" href="/signUp">
@@ -106,14 +109,17 @@ const Navbar = () => {
               onClick={closeDropdown}
             >
               <li className="w-full">
-                <a className="hover:text-[#02137A]" href="/profile">
+                <a className="hover:text-[#02137A]" href="userProfile">
                   Profile
                 </a>
               </li>
               <li className="w-full">
-                <a className="hover:text-[#02137A]" href="/dashboard">
+                {
+                  user && 
+                  <a className="hover:text-[#02137A]" href="/dashboard/home">
                   Dashboard
                 </a>
+                }
               </li>
               <li className="w-full">
                 <a className="hover:text-[#02137A]" href="#">
@@ -129,12 +135,10 @@ const Navbar = () => {
                       handleLogOut();
                     }}
                   >
-                    Log Out
+                    Sign Out
                   </button>
                 ) : (
-                  <button className="hover:text-[#02137A]" href="/signIn">
-                    Log In
-                  </button>
+                  <a className="hover:text-[#02137A]" href="/signIn"> Sign in</a>
                 )}
               </li>
             </ul>

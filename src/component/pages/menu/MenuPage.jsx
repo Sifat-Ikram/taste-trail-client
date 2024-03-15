@@ -34,227 +34,235 @@ const MenuPage = () => {
             dishes crafted with love and passion. From savory pizzas to
             refreshing salads, we have something to tantalize every taste bud.
             Indulge in our flavorful soups, savor our aromatic curries, and
-            don't forget to leave room for our tempting desserts. Bon appétit!
+            do not forget to leave room for our tempting desserts. Bon appétit!
           </p>
         </div>
         <div className="flex justify-center items-center gap-32 my-8">
           <div>
-          <button
-            onClick={toggleDrawer}
-            className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md"
-          >
-            See Categories
-          </button>
-          <Drawer
-            open={isOpen}
-            onClose={toggleDrawer}
-            direction="left"
-            style={{
-              width: "300px",
-              backgroundColor: "#ffffff",
-              borderRadius: "20px",
-              padding: "20px",
-              boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <div className="flex justify-between items-center mt-10 mb-5">
-              <h2 className="text-2xl font-semibold text-gray-800">
-                Explore Our Categories
-              </h2>
-              <button
-                className="focus:outline-none text-gray-600 hover:text-gray-800"
-                onClick={toggleDrawer}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+            <button
+              onClick={toggleDrawer}
+              className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md"
+            >
+              See Categories
+            </button>
+            <Drawer
+              open={isOpen}
+              onClose={toggleDrawer}
+              direction="left"
+              style={{
+                width: "300px",
+                backgroundColor: "#ffffff",
+                borderRadius: "20px",
+                padding: "20px",
+                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <div className="flex justify-between items-center mt-10 mb-5">
+                <h2 className="text-2xl font-semibold text-gray-800">
+                  Explore Our Categories
+                </h2>
+                <button
+                  className="focus:outline-none text-gray-600 hover:text-gray-800"
+                  onClick={toggleDrawer}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-            <ul className="space-y-4">
-              <Link
-                to="Biryani"
-                className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <span className="mr-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
                     <path
-                      fillRule="evenodd"
-                      d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
-                      clipRule="evenodd"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
-                </span>
-                Biryani
-              </Link>
-              <Link
-                to="Curry"
-                className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <span className="mr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                Curry
-              </Link>
-              <Link
-                to="Pizza"
-                className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <span className="mr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                Pizza
-              </Link>
-              <Link
-                to="Salad"
-                className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <span className="mr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                Salad
-              </Link>
-              <Link
-                to="Soup"
-                className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <span className="mr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                Soup
-              </Link>
-              <Link
-                to="Dessert"
-                className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <span className="mr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                Dessert
-              </Link>
-              <Link
-                to="Drinks"
-                className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <span className="mr-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                Drinks
-              </Link>
-            </ul>
-          </Drawer>
+                </button>
+              </div>
+              <ul className="space-y-4">
+                <Link
+                  to="Biryani"
+                  className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <span className="mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Biryani
+                </Link>
+                <Link
+                  to="Curry"
+                  className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <span className="mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Curry
+                </Link>
+                <Link
+                  to="Pizza"
+                  className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <span className="mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Pizza
+                </Link>
+                <Link
+                  to="Salad"
+                  className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <span className="mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Salad
+                </Link>
+                <Link
+                  to="Soup"
+                  className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <span className="mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Soup
+                </Link>
+                <Link
+                  to="Dessert"
+                  className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <span className="mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Dessert
+                </Link>
+                <Link
+                  to="Drinks"
+                  className="text-lg cursor-pointer font-semibold text-blue-600 hover:text-blue-800 transition duration-300 rounded-lg py-3 px-6 flex items-center bg-gradient-to-r from-blue-200 to-blue-300"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  <span className="mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.707 7.707a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586l-3.293-3.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Drinks
+                </Link>
+              </ul>
+            </Drawer>
           </div>
-          <button className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md">Make A Reservation</button>
-          <button className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md">Add A Review</button>
+          <a href="/giveReservation">
+            <button className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md">
+              Make A Reservation
+            </button>
+          </a>
+          <a href="/review">
+            <button className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md">
+              Add A Review
+            </button>
+          </a>
         </div>
         <div>
           <Element name="Biryani">
