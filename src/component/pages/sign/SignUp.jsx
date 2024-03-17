@@ -163,7 +163,7 @@ const SignUp = () => {
               <div>
                 <button
                   type="submit"
-                  className="btn bg-[#02137A] hover:bg-[#02137A] w-full text-white"
+                  className="btn btn-primary bg-[#02137A] hover:bg-[#02137A] w-full text-white"
                 >
                   Sign up
                 </button>
@@ -180,7 +180,7 @@ const SignUp = () => {
             <div>
               <button
                 onClick={handleGoogleRegister}
-                className="btn btn-outline border-[#02137A] hover:bg-[#02137A] w-full"
+                className="btn btn-outline btn-primary"
               >
                 <FaGoogle /> Sign up with Google
               </button>

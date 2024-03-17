@@ -4,7 +4,7 @@ import Cover from "../../hooks/Cover";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import img from "../../../assets/reservation/wood-grain-pattern-gray1x.png";
+import img from "../../../assets/contact/banner.jpg";
 
 const GiveReservation = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -18,8 +18,9 @@ const GiveReservation = () => {
   const onSubmit = async (data) => {
     console.log(data);
     const reservationInfo = {
-      userName: user.displayName,
-      userEmail: user.email,
+      name: data.name,
+      email: data.email,
+      guest: data.guest,
       reservationTable: data.reservationTable,
       reservationAbout: data.reservationAbout,
       reservationDate: data.reservationDate,
@@ -32,41 +33,64 @@ const GiveReservation = () => {
     );
 
     if (reservationRes.data.insertedId) {
-        console.log();
+      console.log();
       Swal.fire("Reserved successfully");
       reset();
     }
   };
 
   return (
-    <div className="mb-10">
+    <div>
       <div className="w-full mx-auto">
         <Cover img={img} title={"Reservation"} />
         <div className="text-center mt-20">
           <h1 className="uppercase text-3xl font-bold mt-10">Reserve here</h1>
         </div>
-        <div className="w-4/5 mx-auto mt-10">
+        <div className="w-3/4 mx-auto mt-10">
           <form onSubmit={handleSubmit(onSubmit)} className="my-8 space-y-7">
-            <div className="flex justify-center gap-5">
-              <div className="flex-1 w-2/5">
+            <div className="md:flex md:justify-center md:gap-5">
+              <div className="flex-1 md:w-1/3 w-4/5 mx-auto max-md:mt-5">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Your Name
                 </label>
                 <input
                   {...register("name")}
                   type="text"
-                  defaultValue={user.displayName}
                   placeholder="Type your name here"
-                  className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full border rounded-md py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
-              <div className="flex-1 w-2/5">
+              <div className="flex-1 md:w-1/3 w-4/5 mx-auto max-md:mt-5">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Your Email
+                </label>
+                <input
+                  {...register("email")}
+                  type="email"
+                  placeholder="Type your email here"
+                  className="w-full border rounded-md py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            </div>
+            <div className="md:flex md:justify-center md:gap-5">
+              <div className="flex-1 md:w-1/3 w-4/5 mx-auto max-md:mt-5">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  No. of Guests
+                </label>
+                <input
+                  {...register("guest")}
+                  type="text"
+                  placeholder="Type number of Guests"
+                  className="w-full border rounded-md py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="flex-1 md:w-1/3 w-4/5 mx-auto max-md:mt-5">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Reservation Table No
                 </label>
                 <select
                   {...register("reservationTable")}
-                  className="select select-bordered w-full"
+                  className="select select-bordered w-full bordered border-black"
                 >
                   <option value="Table1">Table No: 1</option>
                   <option value="Table2">Table No: 2</option>
@@ -79,8 +103,8 @@ const GiveReservation = () => {
                 </select>
               </div>
             </div>
-            <div className="flex justify-center gap-5">
-              <div className="flex-1 w-2/5">
+            <div className="md:flex md:justify-center md:gap-5">
+              <div className="flex-1 md:w-1/3 w-4/5 mx-auto max-md:mt-5">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Reservation Date
                 </label>
@@ -88,10 +112,10 @@ const GiveReservation = () => {
                   {...register("reservationDate")}
                   type="date"
                   placeholder="Type reservation date here"
-                  className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full border rounded-md py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
-              <div className="flex-1 w-2/5">
+              <div className="flex-1 md:w-1/3 w-4/5 mx-auto max-md:mt-5">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Reservation Time
                 </label>
@@ -99,7 +123,7 @@ const GiveReservation = () => {
                   {...register("reservationTime")}
                   type="time"
                   placeholder="Type reservation time here"
-                  className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="w-full border rounded-md py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 >
                   <option value="breakfast">Breakfast</option>
                   <option value="lunch">Lunch</option>
@@ -121,9 +145,9 @@ const GiveReservation = () => {
             <div>
               <button
                 type="submit"
-                className="btn bg-blue-900 hover:bg-[#02137A] w-full text-white font-semibold text-lg"
+                className="btn btn-primary w-full text-white font-semibold"
               >
-                Submit
+                Reserve
               </button>
             </div>
           </form>

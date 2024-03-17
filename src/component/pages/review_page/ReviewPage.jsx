@@ -4,32 +4,30 @@ import Cover from "../../hooks/Cover";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import img from "../../../assets/home/featured.jpg"
+import img from "../../../assets/home/featured.jpg";
 
 const ReviewPage = () => {
-    const { register, handleSubmit, reset } = useForm();
-    const { user } = useContext(AuthContext)
-    const axiosPublic = useAxiosPublic( )
+  const { register, handleSubmit, reset } = useForm();
+  const { user } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
 
-    const onSubmit = async (data) => {
-        const ReviewInfo = {
-            name: data.name,
-            review: data.review,
-            userName: user.displayName,
-            userEmail: user.email
-          };
-    
-          const ReviewRes = await axiosPublic.patch(`/review`, ReviewInfo);
-    
-          if (ReviewRes.data.modifiedCount) {
-            Swal.fire("Review updated successfully");
-            reset();
-          }
-      };
+  const onSubmit = async (data) => {
+    const ReviewInfo = {
+      name: data.name,
+      rating: data.rating,
+      details: data.details,
+    };
 
+    const ReviewRes = await axiosPublic.patch(`/review`, ReviewInfo);
 
-    return (
-        <div className="mb-10">
+    if (ReviewRes.data.modifiedCount) {
+      Swal.fire("Review updated successfully");
+      reset();
+    }
+  };
+
+  return (
+    <div className="mb-10">
       <div className="w-full mx-auto">
         <Cover img={img} title={"Review"} />
         <div className="text-center mt-20">
@@ -37,23 +35,37 @@ const ReviewPage = () => {
         </div>
         <div className="w-4/5 mx-auto mt-10">
           <form onSubmit={handleSubmit(onSubmit)} className="my-8 space-y-7">
+            <div className="flex justify-center gap-20">
               <div className="flex-1">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Name
                 </label>
                 <input
                   {...register("name")}
+                  defaultValue={user?.displayName}
                   type="text"
-                  placeholder="Type Food name here"
-                  className="w-1/3 border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="Type your name here"
+                  className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
-              <div>
+              <div className="flex-1">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Rating
+                </label>
+                <input
+                  {...register("rating")}
+                  type="text"
+                  placeholder="Give a rating"
+                  className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            </div>
+            <div>
               <label className="block text-gray-700 text-sm font-bold mb-2">
                 Review
               </label>
               <textarea
-                {...register("review")}
+                {...register("details")}
                 type="text"
                 className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="Write review"
@@ -62,7 +74,7 @@ const ReviewPage = () => {
             <div>
               <button
                 type="submit"
-                className="btn bg-blue-900 hover:bg-[#02137A] w-full text-white font-semibold text-lg"
+                className="btn btn-primary hover:bg-[#02137A] w-full text-white font-semibold text-lg"
               >
                 Submit
               </button>
@@ -71,7 +83,7 @@ const ReviewPage = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default ReviewPage;

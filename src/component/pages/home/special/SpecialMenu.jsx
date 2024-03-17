@@ -46,7 +46,7 @@ const SpecialMenu = () => {
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
             {specialMenu.map((item) => (
               <Link key={item._id} data-aos="fade-up">
-                <div className="flex space-x-5 items-center rounded-md bg-base-200">
+                <div className="flex space-x-5 shadow items-center rounded-md bg-base-200">
                   <div>
                     <img
                       src={item.image}
@@ -54,7 +54,7 @@ const SpecialMenu = () => {
                       alt=""
                     />
                   </div>
-                  <div className="p-2 space-y-5 shadow">
+                  <div className="p-2 space-y-5">
                     <div className="flex justify-between text-xl">
                       <h1>{item.name}</h1>
                       <p className="mr-1 text-[#02137A]">${item.price}</p>

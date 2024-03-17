@@ -5,14 +5,14 @@ import { AuthContext } from '../provider/AuthProvider';
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:4321'
+    baseURL: 'https://taste-trail-server.vercel.app'
 })
 const useAxiosSecure = () => {
     const { logOut } = useContext(AuthContext);
 const navigate = useNavigate();
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token');
-        // console.log('request intercepted by interceptor', token);
+        console.log('request intercepted by interceptor', token);
         config.headers.authorization = `Bearer ${token}`;
         return config;
     }, function (error) {
@@ -27,7 +27,7 @@ const navigate = useNavigate();
             await logOut();
            navigate('/signIn');
        }
-    //    console.log('status error by interceptors', status);
+       console.log('status error by interceptors', status);
         return Promise.reject(error);
     })
 

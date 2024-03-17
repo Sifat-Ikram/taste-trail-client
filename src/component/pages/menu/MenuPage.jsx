@@ -41,7 +41,7 @@ const MenuPage = () => {
           <div>
             <button
               onClick={toggleDrawer}
-              className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md"
+              className="btn btn-outline btn-primary hover:text-white font-bold py-2 px-4 rounded-md"
             >
               See Categories
             </button>
@@ -254,12 +254,12 @@ const MenuPage = () => {
             </Drawer>
           </div>
           <a href="/giveReservation">
-            <button className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md">
+            <button className="btn btn-outline btn-primary hover:text-white font-bold py-2 px-4 rounded-md">
               Make A Reservation
             </button>
           </a>
           <a href="/review">
-            <button className="text-[#02137A] btn btn-outline hover:bg-[#02137A] hover:text-white font-bold py-2 px-4 rounded-md">
+            <button className="btn btn-outline btn-primary hover:text-white font-bold py-2 px-4 rounded-md">
               Add A Review
             </button>
           </a>

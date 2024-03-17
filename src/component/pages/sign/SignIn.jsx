@@ -3,7 +3,6 @@ import img from '../../../assets/others/authentication2.png';
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
-import Swal from 'sweetalert2';
 
 const SignIn = () => {
     const { logIn } = useContext(AuthContext);
@@ -19,7 +18,6 @@ const SignIn = () => {
         logIn(data.email, data.password)
         .then(res => {
             console.log(res.user);
-            Swal.fire("You signed in successfully!");
             navigate(location?.state ? location.state : '/');
             setSuccess('');
             
@@ -55,7 +53,7 @@ const SignIn = () => {
                                 <input name='password' {...register("password")} type="password" placeholder="password" className="w-full input input-bordered" required />
                             </div>
                             <div>
-                                <button type='submit' className='btn bg-[#02137A] hover:bg-[#02137A] w-full text-white'>Sign in</button>
+                                <button type='submit' className='btn btn-primary text-white w-full'>Sign in</button>
                             </div>
                             {
                                 error && <p>{error}</p>

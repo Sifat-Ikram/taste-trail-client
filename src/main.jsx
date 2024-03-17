@@ -19,7 +19,6 @@ import ManageFood from "./component/pages/admin_router/manage_food/ManageFood.js
 import ManageBookings from "./component/pages/admin_router/manage_bookings/ManageBookings.jsx";
 import UpdateFood from "./component/pages/admin_router/update_food/UpdateFood.jsx";
 import Reservations from "./component/pages/admin_router/reservation/Reservations.jsx";
-import AdminHome from "./component/pages/admin_router/admin_home/AdminHome.jsx";
 import ReviewPage from "./component/pages/review_page/ReviewPage.jsx";
 import GiveReservation from "./component/pages/reservation/GiveReservation.jsx";
 import UserHome from "./component/pages/user_router/user_home/UserHome.jsx";
@@ -27,6 +26,7 @@ import ManageCart from "./component/pages/user_router/manage_cart/ManageCart.jsx
 import MyReservations from "./component/pages/user_router/reservations/MyReservation.jsx";
 import UserProfile from "./component/pages/user_profile/UserProfile.jsx";
 import UserUpdate from "./component/pages/user_profile/UserUpdate.jsx";
+import AdminHome from "./component/pages/admin_router/adminHome/AdminHome.jsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -106,11 +106,7 @@ const router = createBrowserRouter([
         element: <Reservations />
       },
       {
-        path: "/dashboard/home",
-        element: <AdminHome />
-      },
-      {
-        path: "/dashboard/home",
+        path: "/dashboard/userHome",
         element: <UserHome />
       },
       {
@@ -120,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myReservations",
         element: <MyReservations />
+      },
+      {
+        path: "/dashboard/adminHome",
+        element: <AdminHome />
       },
     ]
   }

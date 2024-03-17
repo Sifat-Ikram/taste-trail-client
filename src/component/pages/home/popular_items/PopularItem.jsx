@@ -1,87 +1,78 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from "swiper/core"; // Updated import statement
-import "swiper/swiper-bundle.css";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import special from "../../../../assets/menu/specials.webp";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import useMenu from "../../../hooks/useMenu";
+import { Link } from "react-router-dom";
+import "daisyui/dist/full.css"; // Import Daisy UI styles
 
-// Initialize Swiper
-SwiperCore.use([Autoplay]);
-
-const SpecialMenu = () => {
+const PopularItem = () => {
   const [menu] = useMenu();
-
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
-
-  const specialMenu = menu.filter((cat) => cat.category === "Specials");
+  const popularMenu = menu.filter((cat) => cat.category === "offered");
 
   return (
-    <div data-aos="fade-up">
-      <div
-        className="hero relative"
-        style={{
-          backgroundImage: `url(${special})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          height: "400px",
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          data-aos="fade-up"
-        >
-          <h1 className="text-6xl font-bold uppercase text-white">Our Specials</h1>
-        </div>
-      </div>
-      <div data-aos="fade-up" className="my-20 w-4/5 mx-auto">
-        <h1
-          data-aos="fade-up"
-          className="text-center text-5xl font-bold text-black"
-        >
-          Special Items
+    <div className="popular-container bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col justify-between items-center w-3/4 mx-auto text-center mb-10">
+        <h1 className="text-4xl font-semibold mb-8 text-center text-gray-800">
+          Discover Our Most-Loved Dishes!
         </h1>
-        <div className="my-10">
-          <Swiper
-            spaceBetween={30}
-            slidesPerView={1}
-            autoplay={{ delay: 5000 }}
-            loop={true}
-            className="swiper-container"
-          >
-            {specialMenu.map((item) => (
-              <SwiperSlide key={item._id}>
-                <Link>
-                  <div className="flex space-x-5 items-center rounded-md bg-base-200">
-                    <div>
-                      <img
-                        src={item.image}
-                        className="w-60 h-36 rounded-md"
-                        alt=""
-                      />
-                    </div>
-                    <div className="p-2 space-y-5 shadow">
-                      <div className="flex justify-between text-xl">
-                        <h1>{item.name}</h1>
-                        <p className="mr-1 text-[#02137A]">${item.price}</p>
-                      </div>
-                      <p>{item.recipe}</p>
-                    </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <p>
+          Embark on a culinary adventure with our handpicked array of
+          crowd-pleasers, where each dish tells a story of culinary brilliance
+          and irresistible flavors that have captured the hearts of our patrons
+        </p>
+      </div>
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={10}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {popularMenu.map((item) => (
+          <SwiperSlide key={item._id}>
+            <div
+              className="swiper-slide-content group relative rounded-lg overflow-hidden"
+              style={{
+                backgroundImage: `url(${item.image})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                height: "250px",
+              }}
+            >
+              <div className="absolute inset-0 bg-black opacity-40 transition-opacity duration-300 group-hover:opacity-60"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                {item.name && (
+                  <h1 className="text-2xl font-bold uppercase mb-4">
+                    {item.name}
+                  </h1>
+                )}
+                {item.recipe && (
+                  <p className="text-sm text-gray-200">{item.recipe}</p>
+                )}
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="text-center mt-8">
+        <Link to="/menu">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            View Menu
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default SpecialMenu;
+export default PopularItem;

@@ -83,7 +83,7 @@ const AddFood = () => {
                             <input type="file" {...register("image")} className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                         </div>
                         <div>
-                            <button type='submit' className='btn bg-blue-900 hover:bg-[#02137A] w-full text-white font-semibold text-lg'>Submit</button>
+                            <button type='submit' className='btn btn-primary hover:bg-[#02137A] w-full text-white font-semibold text-xl'>Submit</button>
                         </div>
                     </form>
                 </div>

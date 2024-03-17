@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Cover from "../../hooks/Cover";
 import banner from "../../../assets/shop/banner2.jpg";
 import useCart from "../../hooks/useCart";
@@ -6,8 +6,10 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Shop = () => {
+  const { user } = useContext(AuthContext);
   const axiosPublic = useAxiosPublic();
   const [cart, refetch] = useCart();
   const [voucherCode, setVoucherCode] = useState("");
@@ -60,6 +62,7 @@ const Shop = () => {
 
   const handleOrderFinal = () => {
     const orderInfo = {
+      userName: user.email,
       cart: cart,
       discountedAmount: discountedAmount,
       totalCost: calculateTotalCost(),
@@ -186,13 +189,16 @@ const Shop = () => {
               </div>
 
               <p className="text-lg mb-4">
-                Discounted Amount: ${discountedAmount}
+                Total Amount: $
+                {discountedAmount !== 0
+                  ? discountedAmount
+                  : calculateTotalCost()}
               </p>
 
               <div>
                 <p className="text-lg font-bold mb-5">Select Payment Method:</p>
                 <div className="flex flex-col items-center">
-                  <button className="btn btn-outline btn-primary font-bold w-full rounded-md">
+                  <button onClick={handleOrderFinal} className="btn btn-outline btn-primary font-bold w-full rounded-md">
                     Credit Card Payment
                   </button>
                 </div>

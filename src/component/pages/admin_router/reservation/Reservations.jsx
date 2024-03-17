@@ -52,11 +52,12 @@ const Reservations = () => {
             <div className='p-2 mt-10'>
                 <div className="overflow-x-auto mt-3">
                     <table className="table">
-                        {/* head */}
                         <thead className='bg-blue-900 rounded-sm'>
                             <tr>
                                 <th className='text-base font-semibold text-white'></th>
                                 <th className='text-base font-semibold text-white'>Name</th>
+                                <th className='text-base font-semibold text-white'>Email</th>
+                                <th className='text-base font-semibold text-white'>No. of Guests</th>
                                 <th className='text-base font-semibold text-white'>Table Number</th>
                                 <th className='text-base font-semibold text-white'>Date</th>
                                 <th className='text-base font-semibold text-white'>Time</th>
@@ -71,7 +72,17 @@ const Reservations = () => {
                                     </th>
                                     <td>
                                         <div>
-                                            <div className="font-bold">{reservation.userName}</div>
+                                            <div className="font-bold">{reservation.name}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <div className="font-bold">{reservation.email}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <div className="font-bold">{reservation.guest}</div>
                                         </div>
                                     </td>
                                     <td>

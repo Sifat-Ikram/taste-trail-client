@@ -1,5 +1,6 @@
 import Banner from "./banner/Banner";
 import DinnerLunch from "./dinner_lunch/DinnerLunch";
+import HomeReservation from "./home_reservation/HomeReservation";
 import PopularItem from "./popular_items/PopularItem";
 import Promoting from "./promoting/Promoting";
 import Review from "./review/Review";
@@ -17,6 +18,7 @@ const Home = () => {
       <DinnerLunch />
       <PopularItem />
       <Review />
+      <HomeReservation />
     </div>
   );
 };

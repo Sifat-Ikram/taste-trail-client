@@ -73,26 +73,26 @@ const MenuDefault = ({ title }) => {
         className="grid grid-cols-1 gap-3 w-4/5 mx-auto"
       >
         {name.map((item) => (
-          <div key={item._id} to={`/${item.id}`} className="text-base w-4/5 mx-auto">
-            <div className="flex items-center border-b-2 border-solid shadow rounded-lg transition duration-300 transform hover:scale-105">
-              <div>
+          <div key={item._id} to={`/${item.id}`} className="text-base w-4/5 mx-auto cursor-pointer">
+            <div className="flex gap-5 items-center border-b-2 border-solid shadow rounded-lg transition duration-300 transform hover:scale-105">
+              <div className="w-[208px]">
                 <img
                   src={item.image}
                   className="w-52 h-36 rounded-l-lg"
                   alt=""
                 />
               </div>
-              <div className="py-2 px-4">
+              <div className="py-2 flex-1 pr-3">
                 <div className="flex justify-between text-xl mb-2">
                   <h1 className="font-semibold">{item.name}</h1>
                   <hr />
                   <p className="">${item.price}</p>
                 </div>
                 <p className="text-gray-600 w-3/4">{item.recipe}</p>
-                <div className="flex justify-end">
+                <div className="flex justify-end pr-3">
                   <button
                     onClick={() => handleOrder(item)}
-                    className="btn btn-outline border-0 hover:bg-white text-[#02137A] border-b-2 border-y-[#02137A] hover:text-[#02137A]"
+                    className="px-3 py-2 rounded-md border-0 hover:bg-[#02137A] border-b-2 border-y-[#02137A] hover:text-white"
                   >
                     Order Online
                   </button>

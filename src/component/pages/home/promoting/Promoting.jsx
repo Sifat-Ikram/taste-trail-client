@@ -13,7 +13,7 @@ const Promoting = () => {
                         <h1 className="text-5xl font-bold">Experience the Finest Dining</h1>
                         <p className="py-6">Indulge in exquisite flavors crafted by our master chefs. Reserve your table now and enjoy a culinary journey like never before.</p>
                         <Link to="/giveReservation">
-                           <button className='btn bg-[#02137A] hover:bg-[#02137A] text-white font-bold text-lg'>Reserve Now</button>
+                           <button className='border-blue-700 border-2 px-3 py-3 rounded-md hover:bg-[#02137A] hover:text-white font-semibold text-lg'>Reserve Now</button>
                         </Link>
                     </div>
                 </div>

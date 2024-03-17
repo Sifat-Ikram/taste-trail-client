@@ -2,10 +2,25 @@ import { useContext, useState } from "react";
 import { FcMindMap } from "react-icons/fc";
 import { HiMenu } from "react-icons/hi";
 import { AuthContext } from "../../provider/AuthProvider";
+import useAdmin from "../../hooks/useAdmin";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
+  const axiosPublic = useAxiosPublic();
   const { logOut, user } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isAdmin] = useAdmin();
+
+  const { data: currentUser = [] } = useQuery({
+    queryKey: ['currentUser.email'],
+    queryFn: async () => {
+        const res = await axiosPublic.get('/user');
+        return res.data;
+    }
+  });
+
+  const loggedUser = currentUser?.find(cUser => cUser.email === (user?.email ?? ""));
 
   const handleLogOut = async () => {
     try {
@@ -37,17 +52,18 @@ const Navbar = () => {
         </a>
       </li>
       <li>
-        {
-          user &&
+        {user && (
           <a className="nav-link font-semibold" href={"/shop"}>
-          Shop
-        </a>
-        }
+            Shop
+          </a>
+        )}
       </li>
       <li>
-        <a className="nav-link font-semibold" href="/signUp">
-          Sign up
-        </a>
+        {!user && (
+          <a className="nav-link font-semibold" href="/signUp">
+            Sign up
+          </a>
+        )}
       </li>
     </>
   );
@@ -88,20 +104,13 @@ const Navbar = () => {
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            {user ? (
+            <div>
               <img
                 alt="Profile"
-                src={
-                  user.photoURL ||
-                  "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                }
+                src={user ? (loggedUser ? loggedUser.photoUrl : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg") : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
                 className="w-12 h-12 rounded-full object-cover"
               />
-            ) : (
-              <div className="w-12 h-12 flex items-center justify-center rounded-full text-gray-400 border-2 border-solid border-gray-400">
-                <span className="text-sm"> </span>
-              </div>
-            )}
+            </div>
           </div>
           {dropdownOpen && (
             <ul
@@ -114,17 +123,16 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="w-full">
-                {
-                  user && 
-                  <a className="hover:text-[#02137A]" href="/dashboard/home">
-                  Dashboard
-                </a>
-                }
-              </li>
-              <li className="w-full">
-                <a className="hover:text-[#02137A]" href="#">
-                  Settings
-                </a>
+                {user && (
+                  <a
+                    className="hover:text-[#02137A]"
+                    href={
+                      isAdmin ? "/dashboard/adminHome" : "/dashboard/userHome"
+                    }
+                  >
+                    Dashboard
+                  </a>
+                )}
               </li>
               <li className="w-full">
                 {user ? (
@@ -138,7 +146,10 @@ const Navbar = () => {
                     Sign Out
                   </button>
                 ) : (
-                  <a className="hover:text-[#02137A]" href="/signIn"> Sign in</a>
+                  <a className="hover:text-[#02137A]" href="/signIn">
+                    {" "}
+                    Sign in
+                  </a>
                 )}
               </li>
             </ul>

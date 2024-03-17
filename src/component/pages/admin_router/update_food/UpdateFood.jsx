@@ -139,7 +139,7 @@ const UpdateFood = () => {
             <div>
               <button
                 type="submit"
-                className="btn bg-blue-900 hover:bg-[#02137A] w-full text-white font-semibold text-lg"
+                className="btn btn-primary w-full"
               >
                 Item Update
               </button>
